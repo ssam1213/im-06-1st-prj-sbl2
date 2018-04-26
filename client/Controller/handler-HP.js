@@ -1,8 +1,11 @@
 $(document).ready(function () {
     $('#sub').click(loginSubEvent);
     $('#buy').click(buyEvent);
-    });
+});
 
+var simplyAnalApp = {
+    'server': 'http://127.0.0.1:8080'
+};
 
 var loginSubEvent = function(){
     var login = {
@@ -14,7 +17,7 @@ var loginSubEvent = function(){
         console.log(login)
     $.ajax({
         type: 'POST',
-        url: 'http://127.0.0.1:3000/',
+        url: simplyAnalApp.server,
         contentType: 'application/json',
         data: JSON.stringify({
             mail: login.mail,
@@ -25,7 +28,7 @@ var loginSubEvent = function(){
         success: (data) => {
             alert('success');
         },
-        error: function (error) {
+        error: (error) => {
             console.log('error :', error);
         }
     })
@@ -37,16 +40,14 @@ var buyEvent = function(){
     console.log(a);
       $.ajax({
           type: 'POST',
-          url: 'http://127.0.0.1:3000/',
+          url: simplyAnalApp.server,
           contentType: 'application/json',
           data: JSON.stringify(a),
           success: (data) => {
               alert('success');
           },
-          error: function (error) {
+          error: (error) => {
               console.log('error :', error);
           }
       })
-    
-}
-
+    }
