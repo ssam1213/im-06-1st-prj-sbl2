@@ -17,7 +17,7 @@ var loginSubEvent = function(){
         console.log(login)
     $.ajax({
         type: 'POST',
-        url: simplyAnalApp.server+ '/register',
+        url: simplyAnalApp.server + '/register',
         contentType: 'application/json',
         data: JSON.stringify({
             mail: login.mail,
