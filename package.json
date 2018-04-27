@@ -1,0 +1,28 @@
+{
+  "name": "im-06-1st-prj-nobrain-sbl2",
+  "version": "1.0.0",
+  "description": "Super Babo Legend 2 / 이원복 이준표 서의환 백영재 SIMPLY ANALYTICS!",
+  "main": "server-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2/issues"
+  },
+  "homepage": "https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-flash-notification": "^0.5.0",
+    "mysql": "^2.15.0"
+  }
+}
