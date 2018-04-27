@@ -1,81 +1,65 @@
 var db = require('../db');
-
+//model
 module.exports = {
-
-    users: {
-        
-        get: function(callback) {
-            var sql = '';
-            db.query(sql, function(err, data) {
-                if (err) {
-                    throw err;
-                } else {
-                    console.log('data: ', data);
-                    if (callback) {
-                        callback(data);
-                    }
-                }
-            })
-        },
-
-        post: function(data) {
-            var sql = '';
-            db.query(sql, function(err, result) {
-                if (err) {
-                    throw err;
-                } else {
-                    consoel.log('result: ', result);
-                }
+    users: {      
+        get: function (queryStr, mail, cb) {
+            db.query(queryStr, mail, function (err, rows) {
+              cb(err, rows);
+            });
+          },
+        post: function(sql, params, cb) {
+            db.query(sql, params, function (err, row) {
+                console.log('params', params);  
+                cb(err, row);
             })
         }
-
     },
 
-    logs: {
+    // logs: {
         
-        get: function() {
+    //     get: function() {
 
-        },
+    //     },
 
-        post: function() {
+    //     post: function() {
 
-        }
+    //     }
 
-    },
+    // },
 
-    sessions: {
+    // sessions: {
         
-        get: function() {
+    //     get: function() {
 
-        },
+    //     },
 
-        post: function() {
+    //     post: function() {
 
-        }
+    //     }
 
-    },
+    // },
 
-    pageviews: {
+    // pageviews: {
         
-        get: function() {
+    //     get: function() {
 
-        },
+    //     },
 
-        post: function() {
+    //     post: function() {
 
-        }
+    //     }
 
-    },
+    // },
 
-    counts: {
+    // counts: {
         
-        get: function() {
+    //     get: function() {
 
-        },
+    //     },
 
-        post: function() {
+    //     post: function() {
 
-        }
+    //     }
 
-    }
+    // }
 };
