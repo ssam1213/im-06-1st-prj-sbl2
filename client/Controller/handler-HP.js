@@ -36,13 +36,19 @@ var loginSubEvent = function(){
 
 
 var buyEvent = function(){
-    var a = $('.product').text();
-    console.log(a);
+    var buyItem ={
+       product : $('.product').text(),
+        price: $('.price').text(),
+    }
+    console.log(buyItem);
       $.ajax({
           type: 'POST',
           url: simplyAnalApp.server,
           contentType: 'application/json',
-          data: JSON.stringify(a),
+          data: JSON.stringify({
+              product: buyItem.product,
+              price: buyItem.price
+          }),
           success: (data) => {
               alert('success');
           },

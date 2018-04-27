@@ -12,9 +12,9 @@ class Nav extends React.Component {
         return(
          <div> 
          <h2>Nav</h2> 
-          {/* <p>Users</p>
+          <p>Users</p>
           <p>Page</p>
-          <p>Buy</p>  */}
+          <p>Buy</p> 
         </div>
         )
     }

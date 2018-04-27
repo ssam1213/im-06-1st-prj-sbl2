@@ -5,7 +5,7 @@
   "main": "server-config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,12 @@
   "homepage": "https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "express-flash-notification": "^0.5.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "react-chartjs": "^1.2.0"
   }
 }
