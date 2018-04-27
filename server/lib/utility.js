@@ -1,5 +1,4 @@
 var bcrypt = require('bcrypt');
-var Promise = require('bluebird');
 
 exports.isValidPassword = function (password, hash) {
     return new Promise(function (resolve, reject) {
