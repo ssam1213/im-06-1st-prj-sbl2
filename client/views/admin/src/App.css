@@ -11,38 +11,98 @@
   grid-template-areas:  
   "h h h h h h h h h h h h h"  
   "h h h h h h h h h h h h h"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c" 
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"  
-  "n n c c c c c c c c c c c"
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"  
+  "c c c c c c c c c c c c c"
 }
 
 .header {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   grid-area: h;
-  
+  background-color: #F1F2F2;
 }
 
-.nav {
+/* .nav {
   border: 1px solid gray;
   grid-area: n;
   
-}
+} */
 
 .content {
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   grid-area: c;
 }
+
+.containerContent {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr) ;
+}
+   /* grid-gap: 4px; */
+   /* grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(2, 1fr); */
+   /* grid-template-areas : 
+    "m r"
+    "m r" */
+    /* "l l l m m m r r r" 
+    "l l h m m m r r r" 
+    "l l l m m m r r r" 
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    "l l l m m m r r r"
+    */
+/* } */
+
+
+.contentColLeft {
+  /* border: 1px solid gray; */
+  display: subgrid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+} 
+
+.contentColMid {
+  height: 100%;
+  display: subgrid;
+  /* border: 1px solid gray; */
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.contentColRight {
+  height : 100%;
+  display: subgrid;
+  /* border: 1px solid gray; */
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}  
+
 
 
 /* .App-logo { 

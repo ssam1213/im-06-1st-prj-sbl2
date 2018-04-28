@@ -1,4 +1,4 @@
-$(document).ready(()=>{
+$(document).ready(() => {
     $('section.main-content').on('click', 'div.product-box', sendProductInfoToServer);
 });
 
@@ -11,9 +11,9 @@ var sendProductInfoToServer = function () {
     var productName = $(this).find('a.title:first').text();
     var category = $(this).find('a.category:first').text();
     var data = {
-        'productCode' : productCode,
-        'productName' : productName,
-        'category' : category
+        'productCode': productCode,
+        'productName': productName,
+        'category': category
     };
     console.log(data);
     
