@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<title>Shopping Mall</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
+		<link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">      
+		<link href="../../lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+		
+		<link href="../../lib/themes/css/bootstrappage.css" rel="stylesheet"/>
+
 
 	<link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../../lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-	<link href="../../lib/themes/css/bootstrappage.css" rel="stylesheet" />
 
-	<link href="../../lib/themes/css/flexslider.css" rel="stylesheet" />
-	<link href="../../lib/themes/css/main.css" rel="stylesheet" />
+		<script src="../../lib/themes/js/jquery-1.7.2.min.js"></script>
+		<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>				
+		<script src="../../lib/themes/js/superfish.js"></script>	
+		<script src="../../lib/themes/js/jquery.scrolltotop.js"></script>
+		<script src="../../Controller/handler-HP.js"></script>
+		<script src="../../Controller/handler-viewCount.js"></script>
+		<script src="../../Controller/handler-login.js"></script>
 
 	<script src="../../lib/themes/js/jquery-1.7.2.min.js"></script>
 	<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
@@ -111,128 +115,84 @@
 											<strong>Products</strong>
 										</span>
 									</span>
-								</span>
-								<span class="pull-right">
-									<a class="left button" href="#myCarousel" data-slide="prev"></a>
-									<a class="right button" href="#myCarousel" data-slide="next"></a>
-								</span>
-							</h4>
-							<div id="myCarousel" class="myCarousel carousel slide">
-								<div class="carousel-inner">
-									<div class="active item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="product-box">
-													<span class="sale_tag"></span>
-													<p>
-														<a href='/product14'>
-															<img src="../../lib/themes/images/ladies/1.jpg" alt="" />
-														</a>
-													</p>
-													<a href='/product14' id='product14' class="title">Ut wisi enim ad</a>
-													<br/>
-													<a href='/product14' class="category">Commodo consequat</a>
-													<p href='/product14' class="price">$17.25</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<span class="sale_tag"></span>
-													<p>
-														<a href="/product15">
-															<img src="../../lib/themes/images/ladies/2.jpg" alt="" />
-														</a>
-													</p>
-													<a href="/product15.html" id='product15' class="title">Quis nostrud exerci tation</a>
-													<br/>
-													<a href="/product15.html" class="category">Quis nostrud</a>
-													<p class="price">$32.50</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="/product16.html">
-															<img src="../../lib/themes/images/ladies/3.jpg" alt="" />
-														</a>
-													</p>
-													<a href="/product16.html" id='product16' class="title">Know exactly turned</a>
-													<br/>
-													<a href="/product16.html" class="category">Quis nostrud</a>
-													<p class="price">$14.20</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="/product17.html">
-															<img src="../../lib/themes/images/ladies/4.jpg" alt="" />
-														</a>
-													</p>
-													<a href="/product17.html" id='product17' class="title">You think fast</a>
-													<br/>
-													<a href="/product17.html" class="category">World once</a>
-													<p class="price">$31.45</p>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="product_detail.html">
-															<img src="../../lib/themes/images/ladies/5.jpg" alt="" />
-														</a>
-													</p>
-													<a href="product_detail.html" class="title">Know exactly</a>
-													<br/>
-													<a href="products.html" class="category">Quis nostrud</a>
-													<p class="price">$22.30</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="product_detail.html">
-															<img src="../../lib/themes/images/ladies/6.jpg" alt="" />
-														</a>
-													</p>
-													<a href="product_detail.html" class="title">Ut wisi enim ad</a>
-													<br/>
-													<a href="products.html" class="category">Commodo consequat</a>
-													<p class="price">$40.25</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="product_detail.html">
-															<img src="../../lib/themes/images/ladies/7.jpg" alt="" />
-														</a>
-													</p>
-													<a href="product_detail.html" class="title">You think water</a>
-													<br/>
-													<a href="products.html" class="category">World once</a>
-													<p class="price">$10.45</p>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="product-box">
-													<p>
-														<a href="product_detail.html">
-															<img src="../../lib/themes/images/ladies/8.jpg" alt="" />
-														</a>
-													</p>
-													<a href="product_detail.html" class="title">Quis nostrud exerci</a>
-													<br/>
-													<a href="products.html" class="category">Quis nostrud</a>
-													<p class="price">$35.50</p>
-												</div>
-											</li>
-										</ul>
-									</div>
+								</h4>
+								<div id="myCarousel" class="myCarousel carousel slide">
+									<div class="carousel-inner">
+										<div class="active item">
+											<ul class="thumbnails">												
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href='/product14'><img src="../../lib/themes/images/ladies/1.jpg" alt="" /></a></p>
+														<a href='/product14' id = 'product14' class="title">Ut wisi enim ad</a><br/>
+														<a href='/product14' class="category">Commodo consequat</a>
+														<p href='/product14' class="price">$17.25</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<span class="sale_tag"></span>
+														<p><a href="/product15"><img src="../../lib/themes/images/ladies/2.jpg" alt="" /></a></p>
+														<a href="/product15" id = 'product15' class="title">Quis nostrud exerci tation</a><br/>
+														<a href="/product15" class="category">Quis nostrud</a>
+														<p class="price">$32.50</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="/product16"><img src="../../lib/themes/images/ladies/3.jpg" alt="" /></a></p>
+														<a href="/product16" id = 'product16' class="title">Know exactly turned</a><br/>
+														<a href="/product16" class="category">Quis nostrud</a>
+														<p class="price">$14.20</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="/product17"><img src="../../lib/themes/images/ladies/4.jpg" alt="" /></a></p>
+														<a href="/product17" id = 'product17' class="title">You think fast</a><br/>
+														<a href="/product17" class="category">World once</a>
+														<p class="price">$31.45</p>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="item">
+											<ul class="thumbnails">
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="../../lib/themes/images/ladies/5.jpg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Know exactly</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$22.30</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="../../lib/themes/images/ladies/6.jpg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
+														<a href="products.html" class="category">Commodo consequat</a>
+														<p class="price">$40.25</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="../../lib/themes/images/ladies/7.jpg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">You think water</a><br/>
+														<a href="products.html" class="category">World once</a>
+														<p class="price">$10.45</p>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="../../lib/themes/images/ladies/8.jpg" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$35.50</p>
+													</div>
+												</li>																																	
+											</ul>
+										</div>
+									</div>							
 								</div>
 							</div>
 						</div>

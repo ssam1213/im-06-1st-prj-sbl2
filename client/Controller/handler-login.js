@@ -11,8 +11,6 @@ var loginEvent = function () {
         mail: $('#email-login').val(),
         password: $('#password-login').val(),
     };
-
-    console.log(login);
     $.ajax({
         type: 'POST',
         url: simplyAnalApp.server + '/login',
@@ -21,6 +19,15 @@ var loginEvent = function () {
             mail: login.mail,
             password: login.password,
         }),
+        success: (response) => {
+            // console.log('response', response);         
+            if (response.result === 'redirect') {
+                window.location.replace(response.url);
+              } else {
+                  alert('invalid password')
+              }
+
+        },
         error: (error) => {
             console.log('error :', error);
         }

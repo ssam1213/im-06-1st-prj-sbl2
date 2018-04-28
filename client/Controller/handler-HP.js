@@ -43,7 +43,7 @@ var buyEvent = function(){
     console.log(buyItem);
       $.ajax({
           type: 'POST',
-          url: simplyAnalApp.server,
+          url: simplyAnalApp.server + '/order',
           contentType: 'application/json',
           data: JSON.stringify({
               product: buyItem.product,
