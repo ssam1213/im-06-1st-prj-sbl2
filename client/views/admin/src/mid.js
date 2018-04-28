@@ -1,71 +1,74 @@
 import React from 'react';
-var LineChart = require("react-chartjs").Line;
+import RC2 from 'react-chartjs2';
+import {Pie} from 'react-chartjs-2';
 
-// var a = [
-//     { visit: 50, revenue: 1000},
-//     { visit: 20, revenue: 500},
-//     {visit: 70, revenue: 4000}
-//     ];
-
-var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+var data1 = {
+    labels: ["4/27", "4/28", "4/29", "4/30", "5/1", "5/2", "5/3"],
     datasets: [
         {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
+            label: "Visits",
+            data: [183, 178, 150, 218, 200, 190, 185],
+            backgroundColor: ['#FF6384']
         },
-        {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
+          {
+            label: "Revenue",
+            data: [500, 400, 300, 600, 480, 550, 500],
+            borderColor : ['#FFCE56']
         }
     ]
 };
 
-var MyComponent = React.createClass({
-    render: function () {
-        return <LineChart data={chartData} options={chartOptions} width="600" height="250" />
+var data2 = {
+    labels: ['Google', 'Naver', 'Daum', 'Bing', 'Zum'],
+    datasets: [
+        {
+            label: "유입경로",
+            data: [40, 20, 15, 10, 15],
+              backgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#47C83E'
+                ],
+                hoverBackgroundColor: [
+                '#FF6384',
+                '#36A2EB',
+                '#FFCE56',
+                '#47C83E'
+                ]
+        }
+    ]
+};
+
+const options = {
+  maintainAspectRatio: false,
+  responsive: false,
+  legend: {
+    position: 'left',
+    labels: {
+      boxWidth: 10
     }
-});
+  }
+}
+
+class Mid extends React.Component {
+    render() {
+        return (
+            <div>
+                <div style = {{backgroundColor : 'white'}}>
+                    <h2><u> Visits & Revenue </u></h2>  
+                    <RC2 data={data1} options ={options}  type='line'/>
+                </div>
+            <div style={{ backgroundColor: 'white' }}>
+                    <h2><u> Visits By Channel </u></h2>  
+                    <Pie data={data2} options = {options} height={330}  />
+                </div>
+            </div>
+         
+        )
+    }
+};
 
 
 
-// class Mid extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-
-//         };
-//     }
-    
-//     render() {
-//         return (
-//             <div>
-//                 <div>
-
-//                 </div>
-//                 <div>
-
-//                 </div>
-
-//             </div>
-//         )
-//     }
-// }
-
-
-
-
-
-// export default Mid;
+export default Mid;
