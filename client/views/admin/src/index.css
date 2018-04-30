@@ -2,7 +2,7 @@ html,
 body {
   box-sizing: border-box;
   font-family: sans-serif;
-  background-color: #f0efeb;
+  background-color: #F1F2F2;
   height: 100%;
   padding: 1px;
   margin: 0px;
@@ -17,11 +17,11 @@ body {
 }
 
 .container>div:nth-child(1n) {
-  background-color: #4e5353;
+  background-color: #E7E7E4;
 }
 
 .container>div:nth-child(2n) {
-  background-color: #979797;
+  background-color: #E7E7E4;
 }
 
 .container>div:nth-child(3n) {

@@ -1,17 +1,20 @@
 import React from 'react';
 // import ContentColumnLeft from './ContentColLeft';
+import Mid from './Mid';
+import Right from './Right';
+import Left from './Left';
 
-var Content = () => (
+var Content = (props) => (
 
-    <div className='containerContent'>
+    <div className='containerContent' >
         <div className='contentColLeft'>
-
+            <Left />
         </div>
         <div className='contentColMid'>
-
+            <Mid />
         </div>
         <div className='contentColRight'>
-
+            <Right />
         </div>
     </div>
 );
