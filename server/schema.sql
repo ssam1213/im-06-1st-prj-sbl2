@@ -1,20 +1,73 @@
-DROP DATABASE IF EXISTS simplyanal;
+-- eslint-disable-next-line no-use-before-define
+DROP DATABASE IF EXISTS `simplyAnal`;
+CREATE DATABASE `simplyAnal`;
+USE `simplyAnal`;
 
-CREATE DATABASE simplyanal;
-
-USE simplyanal;
-        
-CREATE TABLE users (
- id INTEGER NOT NULL AUTO_INCREMENT,
- mail VARCHAR(30) NOT NULL,
- password VARCHAR(70) NOT NULL,
- name VARCHAR(10) NOT NULL,
- birthDate DATE NOT NULL,
- joined DATETIME,
- PRIMARY KEY(id)
+DROP TABLE IF EXISTS `revenue`;
+CREATE TABLE `revenue` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `sales_id` INTEGER NULL DEFAULT NULL,
+  `revenueTime` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 );
 
-INSERT INTO users  (mail, password, name, birthDate, joined)
-VALUES ('WONBOK@naver.com', "asdf", "wonbok", "1987-12-13", now());
+DROP TABLE IF EXISTS `sales`;
+CREATE TABLE `sales` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `items_id` INTEGER NULL DEFAULT NULL,
+  `saleTime` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
 
-SELECT * FROM users
+DROP TABLE IF EXISTS `items`;
+CREATE TABLE `items` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `pageviews_id` INTEGER NULL DEFAULT NULL,
+  `itemName` VARCHAR(10) NULL DEFAULT NULL,
+  `price` INTEGER(12) NULL DEFAULT NULL,
+  `itemTime` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `pageviews`;
+CREATE TABLE `pageviews` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `pageName` VARCHAR(10) NULL DEFAULT NULL,
+  `visits_id` INTEGER NULL DEFAULT NULL,
+  `pageTime` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `visits`;
+CREATE TABLE `visits` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `visitors_id` INTEGER NULL DEFAULT NULL,
+  `visitTime` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `visitors`;
+CREATE TABLE `visitors` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `users_id` INTEGER NULL DEFAULT NULL,
+  `token` VARCHAR(20) NULL DEFAULT NULL,
+  `duration` TIME NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `mail` VARCHAR(20) NULL DEFAULT NULL,
+  `password` VARCHAR(20) NULL DEFAULT NULL,
+  `userName` VARCHAR(10) NULL DEFAULT NULL,
+  `birthDate` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `revenue` ADD FOREIGN KEY (sales_id) REFERENCES `sales` (`id`);
+ALTER TABLE `sales` ADD FOREIGN KEY (items_id) REFERENCES `items` (`id`);
+ALTER TABLE `items` ADD FOREIGN KEY (pageviews_id) REFERENCES `pageviews` (`id`);
+ALTER TABLE `pageviews` ADD FOREIGN KEY (visits_id) REFERENCES `visits` (`id`);
+ALTER TABLE `visits` ADD FOREIGN KEY (visitors_id) REFERENCES `visitors` (`id`);
+ALTER TABLE `visitors` ADD FOREIGN KEY (users_id) REFERENCES `users` (`id`);
