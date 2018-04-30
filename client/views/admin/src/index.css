@@ -6,11 +6,14 @@ body {
   height: 100%;
   padding: 1px;
   margin: 0px;
+  width: 100%;
 }
 
 #root {
   height: 100%;
+  width: 100%;
 }
+
 
 .container>div {
   display: flex;

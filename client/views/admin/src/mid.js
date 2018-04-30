@@ -22,7 +22,6 @@ var data2 = {
     labels: ['Google', 'Naver', 'Daum', 'Bing', 'Zum'],
     datasets: [
         {
-            label: "유입경로",
             data: [40, 20, 15, 10, 15],
               backgroundColor: [
                 '#FF6384',
@@ -41,8 +40,8 @@ var data2 = {
 };
 
 const options = {
-  maintainAspectRatio: false,
-  responsive: false,
+  maintainAspectRatio: true,
+  responsive: true,
   legend: {
     position: 'left',
     labels: {
@@ -54,14 +53,14 @@ const options = {
 class Mid extends React.Component {
     render() {
         return (
-            <div>
-                <div style = {{backgroundColor : 'white'}}>
+            <div id='mid'>
+                <div id = "midTop">
                     <h2><u> Visits & Revenue </u></h2>  
-                    <RC2 data={data1} options ={options}  type='line'/>
+                    <RC2 data={data1} width={400} height={180} options ={options} type='line'/>
                 </div>
-            <div style={{ backgroundColor: 'white' }}>
+                <div id = "midBottom">
                     <h2><u> Visits By Channel </u></h2>  
-                    <Pie data={data2} options = {options} height={330}  />
+                    <Pie data={data2} width = {400} height = {180} options = {options}  />
                 </div>
             </div>
          
