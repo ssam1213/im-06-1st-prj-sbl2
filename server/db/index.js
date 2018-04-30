@@ -3,10 +3,10 @@ var mysql = require('mysql');
 var dbConnection = mysql.createConnection({
   user: 'root',
   password: '',
-  database: 'simplyanal'
+  database: 'simplyAnal'
 });
 
-dbConnection.connect(function(err) {
+dbConnection.connect(function (err) {
   if (err) {
     throw err;
   }

@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#login').click(loginEvent);
+    $('user-menu li a:nth-child(2)').click(logOutEvent);
 });
 
 var simplyAnalApp = {
@@ -20,16 +21,26 @@ var loginEvent = function () {
             password: login.password,
         }),
         success: (response) => {
-            // console.log('response', response);         
-            if (response.result === 'redirect') {
-                window.location.replace(response.url);
-              } else {
-                  alert('invalid password')
-              }
+            console.log('response', response);
 
+            if (response.result === 'redirect') {
+                window.location.replace('/logout.html');
+            }
         },
         error: (error) => {
             console.log('error :', error);
+        }
+    })
+}
+
+var logOutEvent = function (session) {
+    $.ajax({
+        type: "GET",
+        url: simplyAnalApp.server + '/logout',
+        success: (data) => {
+            if (response.result === 'redirect') {
+                window.location.replace('/index.html');
+            }
         }
     })
 }
