@@ -7,7 +7,7 @@ var data1 = {
     datasets: [
         {
             label: "Visits",
-            data: [183, 178, 150, 218, 200, 190, 185],
+            data: [],
             backgroundColor: ['#FF6384']
         },
           {
@@ -39,6 +39,7 @@ var data2 = {
     ]
 };
 
+
 const options = {
   maintainAspectRatio: true,
   responsive: true,
@@ -49,6 +50,8 @@ const options = {
     }
   }
 }
+
+
 
 class Mid extends React.Component {
     render() {

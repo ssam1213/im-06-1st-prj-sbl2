@@ -38,5 +38,6 @@ var sendToServer = data => {
       console.log('error :', error);
     }
   })
+
 };
 

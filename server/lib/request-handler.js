@@ -133,8 +133,15 @@ exports.countProductClick = function (req, res) {
 }
 
 exports.sendNumberVisitors = function (req, res) {
-
-    console.log('post', req.body);
-    // res.status(200).send()
-    res.end()
+    var queryStr = 'select count(token) from visitors';
+    models.visitors.get(queryStr, function (err, rows) {
+        if (err) {
+            throw err
+        } else {
+            console.log('rows', rows);
+            for(var key in rows){
+            res.send(rows[key])       
+            }
+        }
+    });
 }

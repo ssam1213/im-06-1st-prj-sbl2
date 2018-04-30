@@ -8,6 +8,7 @@ var util = require('./server/lib/utility')
 var path = require('path');
 var partial = require('express-partial');
 var cons = require('consolidate');
+var cors = require('cors')
 
 
 var app = express();
@@ -16,6 +17,7 @@ app.use(express.static(__dirname + '/client/views/shoppingmall'));
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors())
 app.use(session({
     secret: '12weffnoewnfo',
     saveUninitialized: true,
