@@ -45,7 +45,7 @@ app.get('/logout', handler.logout)
 // app.get(/)
 
 //admin
-// app.get('/admin', somthing)
+app.get('/visitCount', handler.sendNumberVisitors)
 // app.get
 
 module.exports = app;

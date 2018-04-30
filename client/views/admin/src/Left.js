@@ -13,29 +13,30 @@ var Left = ({ stats }) => {
             'current': 55,
             'timeSeries': [47, 36, 29, 33, 36, 48, 51],
         },
-        {
-            'title': 'Visits',
-            'current': 85,
-            'timeSeries': [67, 55, 49, 63, 56, 78, 61],
-        },
+        // {
+        //     'title': 'Visits',
+        //     'current': 85,
+        //     'timeSeries': [67, 55, 49, 63, 56, 78, 61],
+        // },
         {
             'title': 'Visitors',
             'current': 35,
             'timeSeries': [47, 36, 29, 33, 36, 48, 51],
         },
-        {
-            'title': 'Sales',
-            'current': 1055,
-            'timeSeries': [721, 536, 629, 773, 536, 648, 851],
-        }
+        // {
+        //     'title': 'Sales',
+        //     'current': 1055,
+        //     'timeSeries': [721, 536, 629, 773, 536, 648, 851],
+        // }
     ];
+    
     return (
         <div className='stat'>
-            {
-                stats.map((stat, i) => {
-                    return <LineGraph stat={stat} key={i} />
-                })
-            }
+            <h2><u>Summary</u></h2>
+                {
+                    stats.map((stat, i) => {
+                        return <LineGraph stat={stat} key={i} />})
+                }
         </div>
     );
 };

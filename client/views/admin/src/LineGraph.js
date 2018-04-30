@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+// import 'chartjs-plugin-datalabels';
 
 class LineGraph extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class LineGraph extends React.Component {
         return (
             <div className='containerLineChart'>
                 <div className='title'>
-                    <h5>{this.props.stat.title}</h5>
+                    <h3>{this.props.stat.title}</h3>
                 </div>
                 <div className='statCurrent'>
                     <h3>{this.props.stat.current}</h3>
@@ -28,10 +29,10 @@ class LineGraph extends React.Component {
                 <div className='LineChart'>
                     <Line
                         data={this.state.lineData}
-                        width={250}
-                        height={100}
+                        height={50}
                         options={{
-                            maintainAspectRatio: false,
+                            maintainAspectRatio: true,
+                            responsive: true,
                             legend: { display: false },
                             scales: {
                                 xAxes: [{ gridLines: { display: false } }],

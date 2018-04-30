@@ -21,6 +21,7 @@ var sendProductInfoToServer = function () {
 };
 
 var sendToServer = data => {
+<<<<<<< HEAD
   $.ajax({
     type: 'POST',
     url: simplyAsimplyAnalApp.server + '/' + data.productCode,
@@ -37,3 +38,32 @@ var sendToServer = data => {
     }
   })
 };
+=======
+  fetch(simplyAnalApp.server + '/' + data.productCode, {
+    method:'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'content-type': 'application/json'
+    }
+  }).then( response => {
+    console.log(response);
+    
+    if( !response.redirected ) {
+      console.log('url:', response.url);
+    }
+  });
+};
+
+// var sendToServer = data => {
+//      $.ajax({
+//         url: simplyAnalApp.server + '/product',
+//         type:'POST',
+//         contentType: 'application/json',
+//         data: JSON.stringify(data)
+//     })
+//     .done(()=>console.log('posting data to server is success! and data is ', data))
+//     .fail((jqXHR, err)=>{
+//         console.log('fail:', err);
+//     });
+// };
+>>>>>>> 2851613c45d2ab264be27ca3b17cac8565ddcb31

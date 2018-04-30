@@ -21,7 +21,6 @@ module.exports = {
         },
         post: function (sql, params, cb) {
             db.query(sql, params, function (err, row) {
-                console.log('params', params);
                 cb(err, row);
             })
         }

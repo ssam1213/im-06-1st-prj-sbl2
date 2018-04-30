@@ -131,3 +131,10 @@ exports.countProductClick = function (req, res) {
     // res.status(200).send()
     res.end()
 }
+
+exports.sendNumberVisitors = function (req, res) {
+
+    console.log('post', req.body);
+    // res.status(200).send()
+    res.end()
+}
