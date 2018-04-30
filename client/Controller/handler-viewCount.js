@@ -1,5 +1,6 @@
 $(document).ready(() => {
   $('section.main-content').on('click', 'div.product-box', sendProductInfoToServer);
+
 });
 
 var simplyAnalApp = {
@@ -7,6 +8,7 @@ var simplyAnalApp = {
 };
 
 var sendProductInfoToServer = function () {
+
   var productCode = $(this).find('a.title:first').attr('id');
   var productName = $(this).find('a.title:first').text();
   var category = $(this).find('a.category:first').text();
@@ -18,7 +20,7 @@ var sendProductInfoToServer = function () {
   console.log(data);
 
   sendToServer(data);
-};
+
 
 var sendToServer = data => {
   $.ajax({
@@ -36,4 +38,6 @@ var sendToServer = data => {
       console.log('error :', error);
     }
   })
+
 };
+
