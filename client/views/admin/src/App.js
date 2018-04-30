@@ -13,19 +13,20 @@ class App extends Component {
     }
   }
 
-  // componentDidMount(){
-  //   fetch('http://127.0.0.1:8080')
-  //   .then(data => data.json())
-  //   .then(users => {
-  //       this.setState({users})
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   })
-  // }
+  componentDidMount(){
+    fetch('http://127.0.0.1:8080/visitCount')
+     .then(response => response.json())
+    .then(json=>
+    this.setState({
+      index: json['count(token)']
+    })
+    )
+
+  }
 
 
   render() {
+    console.log(this.state.index);
     return (
       <div className="App">
         <div className="container">

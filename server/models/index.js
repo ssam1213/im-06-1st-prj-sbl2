@@ -16,8 +16,10 @@ module.exports = {
     },
 
     visitors: {
-        get: function () {
-
+        get: function (queryStr, cb) {
+            db.query(queryStr, function (err, rows) {
+                cb(err, rows);
+            });
         },
         post: function (sql, params, cb) {
             db.query(sql, params, function (err, row) {

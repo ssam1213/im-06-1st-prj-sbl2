@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.2",
     "chartjs-plugin-datalabels": "^0.3.0",
     "react": "^16.3.2",
     "react-bootstrap-table": "^4.3.1",
     "react-bootstrap-table-next": "^0.1.8",
     "react-bootstrap-table2-paginator": "^0.1.1",
+    "react-chartjs-2": "^2.7.2",
+    "react-chartjs2": "^1.2.1",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
     "react-table": "^6.8.2"

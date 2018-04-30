@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "im-06-1st-prj-nobrain-sbl2",
     "version": "1.0.0",
     "description": "Super Babo Legend 2 / 이원복 이준표 서의환 백영재 SIMPLY ANALYTICS!",
@@ -22,8 +21,10 @@
         "bcrypt": "^2.0.1",
         "bluebird": "^3.5.1",
         "body-parser": "^1.18.2",
+        "chart.js": "^2.7.2",
         "consolidate": "^0.15.1",
         "cookie-parser": "^1.4.3",
+        "cors": "^2.8.4",
         "express": "^4.16.3",
         "express-flash-notification": "^0.5.0",
         "express-partial": "^0.1.0",
@@ -31,41 +32,7 @@
         "jsonwebtoken": "^8.2.1",
         "mysql": "^2.15.0",
         "react-chartjs": "^1.2.0",
+        "react-chartjs-2": "^2.7.2",
         "swig": "^1.4.2"
     }
 }
-=======
-  "name": "im-06-1st-prj-nobrain-sbl2",
-  "version": "1.0.0",
-  "description": "Super Babo Legend 2 / 이원복 이준표 서의환 백영재 SIMPLY ANALYTICS!",
-  "main": "server-config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2/issues"
-  },
-  "homepage": "https://github.com/ssam1213/im-06-1st-prj-nobrain-sbl2#readme",
-  "dependencies": {
-    "bcrypt": "^2.0.1",
-    "bluebird": "^3.5.1",
-    "body-parser": "^1.18.2",
-    "consolidate": "^0.15.1",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.16.3",
-    "express-flash-notification": "^0.5.0",
-    "express-partial": "^0.1.0",
-    "express-session": "^1.15.6",
-    "mysql": "^2.15.0",
-    "react-chartjs": "^1.2.0",
-    "swig": "^1.4.2"
-  }
-}
->>>>>>> 2851613c45d2ab264be27ca3b17cac8565ddcb31
