@@ -13,16 +13,16 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
-    fetch('http://127.0.0.1:8080/visitCount')
-     .then(response => response.json())
-    .then(json=>
-    this.setState({
-      index: json['count(token)']
-    })
-    )
+  // componentDidMount(){
+  //   fetch('http://127.0.0.1:8080/visitCount')
+  //    .then(response => response.json())
+  //   .then(json=>
+  //   this.setState({
+  //     index: json['count(token)']
+  //   })
+  //   )
 
-  }
+  // }
 
 
   render() {
