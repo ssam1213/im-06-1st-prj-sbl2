@@ -6,7 +6,6 @@ class Left extends React.Component{
     constructor(){
         super();
         this.state = {
-            // stats: []
         }
     }
 
@@ -28,7 +27,7 @@ class Left extends React.Component{
         return(
             <div className='stat'>
                 <h2><u>Summary</u></h2>
-                {!this.state.stats ?  'Loading...' : this.renderGraph()}
+                {!this.state.stats ? 'Loading...' : this.state.stats[0].timeSeries.length && this.state.stats[1].timeSeries.length && this.state.stats[2].timeSeries.length ? this.renderGraph() : 'Loading...' }
             </div>
         )
     }

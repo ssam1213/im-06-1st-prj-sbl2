@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './simple.png'
 
-var Header = (props) => (
+var Header = () => (
     <div>
         <div id='headTitle'>
             <h1 className='head'><strong>Simply Analytics</strong></h1>

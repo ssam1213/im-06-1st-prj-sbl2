@@ -3,17 +3,16 @@ var adminModels = require('../models/indexAdmin');
 module.exports.mid = function (req, res) {
     console.log('mid model activated')
     var data1 = {
-        labels: ['00', '01', '02', '03', '04', '05', '00', '01', '02', '03', '04', '05', '00', '01', '02', '03', '04', '05', '00', '01', '02', '03', '04', '05' ],
-        // labels: ['04', '08', '12', '16', '20', '24'],
+        labels: [],
         datasets: [
         {
             label: 'visit',
-                data: [10, 20, 30, 40, 50, 10, 20, 30, 40, 50, 10, 20, 30, 40, 50, 10, 20, 30, 40, 50, 10, 20, 30, 40],
+            data: [],
             backgroundColor: ['#FF6384']
         },
         {
             label: 'revenue',
-            data: [100, 200, 300, 400, 100, 200, 300, 400, 100, 200, 300, 400, 100, 200, 300, 400, 100, 200, 300, 400, 100, 200, 300, 400],
+            data:[],
             borderColor: ['#FFCE56']
         }
         ]
@@ -148,16 +147,16 @@ module.exports.right = function (req, res) {
     console.log('right model activated')
     var result = {
         itemData: [
-            { id: 1, name: '', price: 0, visit: 0 },
-            { id: 2, name: '', price: 0, visit: 0 },
-            { id: 3, name: '', price: 0, visit: 0 },
-            { id: 4, name: '', price: 0, visit: 0 }
+            // { id: 1, name: '', price: 0, visit: 0 },
+            // { id: 2, name: '', price: 0, visit: 0 },
+            // { id: 3, name: '', price: 0, visit: 0 },
+            // { id: 4, name: '', price: 0, visit: 0 }
         ],
         pagaData: [
-            { id: 1, pages: '', pageView: 0, avgTime: 33 },
-            { id: 2, pages: '', pageView: 0, avgTime: 180 },
-            { id: 3, pages: '', pageView: 0, avgTime: 77 },
-            { id: 4, pages: '', pageView: 0, avgTime: 90 }
+            // { id: 1, pages: '', pageView: 0, avgTime: 33 },
+            // { id: 2, pages: '', pageView: 0, avgTime: 180 },
+            // { id: 3, pages: '', pageView: 0, avgTime: 77 },
+            // { id: 4, pages: '', pageView: 0, avgTime: 90 }
         ]
     }
    
