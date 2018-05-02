@@ -45,7 +45,6 @@ class Mid extends React.Component {
       return <RC2 data={this.state.data1} width={400} height={180} options={options} type='line' />    
     }
 
-
     componentDidMount(){
         fetch('http://127.0.0.1:8080/visitCount')
         .then(res => res.json())
@@ -55,13 +54,11 @@ class Mid extends React.Component {
     }
     
     render() {
-        // console.log(2);
-        // console.log('state data1 :', this.state.data1)
         return (
             <div id='mid'>
                 <div id = "midTop">
                     <h2><u> Visits & Revenue </u></h2>  
-                    {!this.state.data1 ? 'Loading...' : this.renderGraph() }
+                    {!this.state.data1 ? 'Loading...' : this.state.data1.datasets[0].data.length && this.state.data1.datasets[1].data.length ? this.renderGraph() : 'Loading...'  }
                    
                 </div>
                 <div id = "midBottom">
@@ -73,7 +70,6 @@ class Mid extends React.Component {
         )
     }
 };
-
 
 
 export default Mid;

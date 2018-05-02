@@ -1,13 +1,12 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-// import 'chartjs-plugin-datalabels';
 
 class LineGraph extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             lineData: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+                labels: [],
                 datasets: [{
                     data: props.stat.timeSeries,
                     borderColor: "#3e95cd",

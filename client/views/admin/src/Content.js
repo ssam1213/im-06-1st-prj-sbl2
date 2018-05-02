@@ -3,7 +3,7 @@ import Mid from './Mid';
 import Right from './Right';
 import Left from './Left';
 
-var Content = (props) => (
+var Content = () => (
     <div className='containerContent' >
         <div className='contentColLeft'>
             <Left />

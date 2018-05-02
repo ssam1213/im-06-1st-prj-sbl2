@@ -10,7 +10,19 @@
   grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: "h h h h h h h h h h h h h" "h h h h h h h h h h h h h" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c"
+  grid-template-areas: 
+  "h h h h h h h h h h h h h" 
+  "h h h h h h h h h h h h h" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c" 
+  "c c c c c c c c c c c c c"
 }
 
 .header {
@@ -37,7 +49,19 @@
   grid-gap: 6px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas: "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r"
+  grid-template-areas: 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r" 
+  "l l l l m m m m r r r r"
 }
 
 .contentColLeft {
