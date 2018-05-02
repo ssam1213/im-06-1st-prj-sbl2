@@ -26,7 +26,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.index);
+    // console.log(this.state.index);
     return (
       <div className="App">
         <div className="container">

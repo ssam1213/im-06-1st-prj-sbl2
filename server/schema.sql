@@ -8,7 +8,7 @@ CREATE TABLE `revenue` (
 
  `id` INTEGER NOT NULL AUTO_INCREMENT,
  `pageviews_id` INTEGER NULL DEFAULT NULL,
- `itemName` VARCHAR(10) NOT NULL,
+ `itemName` VARCHAR(200) NOT NULL,
  `price` INTEGER NOT NULL,
  `revenueTime` DATETIME NOT NULL,
  PRIMARY KEY (`id`)
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS `pageviews`;
 CREATE TABLE `pageviews` (
 
  `id` INTEGER NOT NULL AUTO_INCREMENT,
- `pageName` VARCHAR(10) NOT NULL,
+ `pageName` VARCHAR(200) NOT NULL,
  `visitors_id` INTEGER NULL DEFAULT NULL,
  `pageTime` DATETIME NOT NULL,
  PRIMARY KEY (`id`)
@@ -39,7 +39,7 @@ CREATE TABLE `visitors` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
  `id` INTEGER NOT NULL AUTO_INCREMENT,
- `mail` VARCHAR(20) NOT NULL,
+ `mail` VARCHAR(200) NOT NULL,
  `password` VARCHAR(255) NOT NULL,
  `userName` VARCHAR(10) NOT NULL,
  `birthDate` DATE NOT NULL,

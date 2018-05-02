@@ -9,6 +9,7 @@ var path = require('path');
 var partial = require('express-partial');
 var cons = require('consolidate');
 var cors = require('cors')
+var adminHandler = require('./server/lib/requestAdmin')
 
 
 var app = express();
@@ -47,7 +48,9 @@ app.get('/logout', handler.logout)
 // app.get(/)
 
 //admin
-app.get('/visitCount', handler.sendNumberVisitors)
+app.get('/visitCount', adminHandler.mid)
+app.get('/analysisSummary', adminHandler.left)
+app.get('/analysisGraph', adminHandler.right)
 // app.get
 
 module.exports = app;
