@@ -1,31 +1,21 @@
 .App {
-   height: 100%;
-   width: 100%;
+  height: 100%;
+  width: 100%;
 }
+
 .App .container {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-gap: 6px;
+  grid-gap: 10px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas:  
-  "h h h h h h h h h h h h h"  
-  "h h h h h h h h h h h h h"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c" 
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
-  "c c c c c c c c c c c c c"  
+  grid-template-areas: "h h h h h h h h h h h h h" "h h h h h h h h h h h h h" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c" "c c c c c c c c c c c c c"
 }
 
 .header {
   grid-area: h;
+  background-color: #3C454F;
 }
 
 #headDate {
@@ -37,8 +27,8 @@
 .content {
   grid-area: c;
   height: 100%;
+  background-color: #2E80AB;
 }
-
 
 .containerContent {
   height: 100%;
@@ -47,50 +37,41 @@
   grid-gap: 6px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  grid-template-areas :
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-  "l l l l m m m m r r r r"
-
+  grid-template-areas: "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r" "l l l l m m m m r r r r"
 }
 
-.contentColLeft{
+.contentColLeft {
   grid-area: l;
+  background-color: #2E80AB;
 }
-.contentColMid{
+
+.contentColMid {
   grid-area: m;
-  height: 100%
+  height: 100%;
+  background-color: #2E80AB;
 }
-.contentColRight{
+
+.contentColRight {
   grid-area: r;
+  background-color: #2E80AB;
 }
 
 #mid {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-gap: 6px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas :
-    't t'
-    'b b'
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-gap: 6px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 't t' 'b b'
 }
 
-#midTop{
+#midTop {
   grid-area: t;
   background-color: white;
 }
-#midBottom { 
+
+#midBottom {
   grid-area: b;
   background-color: white;
 }
@@ -102,9 +83,7 @@
   grid-gap: 6px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: 
-  'r r' 
-  'o o'
+  grid-template-areas: 'r r' 'o o'
 }
 
 #rightTop {
@@ -120,16 +99,28 @@
 }
 
 .stat {
-    height: 100%;
-    width: 100%;
-    display: subgrid;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    overflow: auto;    
-    background-color: white;
-  }
+  height: 100%;
+  width: 100%;
+  display: subgrid;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  overflow: auto;
+  background-color: white;
+}
 
-  .containerLineChart{
-   margin-top: 5px;
-  }
+.containerLineChart {
+  margin-top: 5px;
+}
 
+.title {
+  background-color: "#5D5D5D"
+}
+
+#headTitle {
+  display: block;
+}
+
+.head {
+  display: inline;
+  color: #2E80AB;
+}

@@ -1,3 +1,4 @@
+
 var models = require('../models');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
@@ -10,16 +11,18 @@ exports.IndexVisit = function (req, res) {
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
-        expiresIn: 24 * 60 * 60
+        expiresIn: 30
     });
+    console.log('beforeTry', req.cookies.cookieName)
     try {
         //쿠키가 있고, 쿠키네임이 있으면
         if (req.headers.cookie && req.cookies.cookieName) {
             jwt.verify(req.cookies.cookieName, "checkTotalVisitors");
+            console.log('verified')
             // console.log('session', req.session);
             res.end()
         } else {
-            console.log('token', myToken);
+            console.log('firstToken', myToken);
             //쿠키가 있는 있는데 쿠키네임이 없으면 = 신규
             res.cookie("cookieName", myToken);
             var visitorTime = new Date();
@@ -38,6 +41,7 @@ exports.IndexVisit = function (req, res) {
     } catch (err) {
         //토큰이 검증안되면 = 만료되면
         console.log(err);
+        console.log('exprired')
         res.cookie("cookieName", myToken);
         res.send({
             'token': myToken

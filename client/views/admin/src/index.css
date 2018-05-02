@@ -2,7 +2,7 @@ html,
 body {
   box-sizing: border-box;
   font-family: sans-serif;
-  background-color: #F1F2F2;
+  background-color: #2E80AB;
   height: 100%;
   padding: 1px;
   margin: 0px;
@@ -12,25 +12,4 @@ body {
 #root {
   height: 100%;
   width: 100%;
-}
-
-
-.container>div {
-  display: flex;
-}
-
-.container>div:nth-child(1n) {
-  background-color: #E7E7E4;
-}
-
-.container>div:nth-child(2n) {
-  background-color: #E7E7E4;
-}
-
-.container>div:nth-child(3n) {
-  background-color: #cfcfcf;
-}
-
-.container>div:nth-child(4n) {
-  background-color: #979796;
 }
