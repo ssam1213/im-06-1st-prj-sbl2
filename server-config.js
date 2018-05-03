@@ -13,10 +13,7 @@ var adminHandler = require('./server/lib/requestAdmin')
 
 
 var app = express();
-
-app.use(express.static(__dirname + '/client/views/shoppingmall'));
 app.use(express.static(__dirname + '/client'));
-// app.use(express.static(path.join(__dirname, 'client/views/admin/build')));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -31,10 +28,10 @@ app.use(session({
 }));
 
 app.engine('html', cons.swig);
-app.set('views', path.join(__dirname, '/client/views/shoppingmall'));
+app.set('views', path.join(__dirname, '/client'));
 app.set('view engine', 'html');
 
-app.get('/indexVisit', handler.IndexVisit);
+app.get('/', handler.renderIndex)
 
 app.post('/register', handler.signupUser);
 
@@ -47,7 +44,6 @@ app.post('/product*', handler.countProductClick);
 
 app.get('/logout', handler.logout)
 
-// app.get(/)
 
 //admin
 app.get('/visitCount', adminHandler.mid)
@@ -55,8 +51,10 @@ app.get('/analysisSummary', adminHandler.left)
 app.get('/analysisGraph', adminHandler.right)
 // app.get
 
-// app.get('/admin', function(req,res){
-//     res.sendFile(path.join(__dirname, 'client/views/admin/build', 'index.html'));
-// })
+app.get('/admin', function(req,res){
+    res.render('views/admin/build/index')
+    // res.sendFile(path.join(__dirname, 'client/views/admin/build', 'index.html'), {
+    // });
+})
 
 module.exports = app;
