@@ -207,3 +207,6 @@ module.exports.right = function (req, res) {
     res.send(JSON.stringify(result))
 }
 
+// module.exports.renderAdminIndex = function (req, res) {
+//     res.sendFile('/Users/wonboklee/Desktop/project1/im-06-1st-prj-nobrain-sbl2/client/views/admin/public/index.html')
+// }

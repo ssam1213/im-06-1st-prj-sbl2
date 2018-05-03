@@ -2,7 +2,11 @@ var models = require('../models/index');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
 
-exports.IndexVisit = function (req, res) {    
+exports.IndexVisit = function (req, res) {  
+    console.log("beforelogin", req.session);
+    console.log('beforelogin', req.sessionID);
+    
+    
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
@@ -91,7 +95,8 @@ exports.loginUser = function (req, res) {
                         req.session.cookie.maxAge = 1000*60*60;
                        })
                        req.session.mail = mail
-                    // console.log('loginsessID', req.sessionID);
+                       console.log("afterlogin", req.session);
+                     console.log('afterlogin', req.sessionID);
                     // console.log('req.session', req.session);
                     res.send({
                         result: 'redirect'
