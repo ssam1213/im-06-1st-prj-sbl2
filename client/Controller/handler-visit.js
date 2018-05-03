@@ -13,7 +13,6 @@ var indexVisitEvent = function () {
         type: "GET",
         url: simplyAnalApp.server + '/indexVisit',
         success: (data) => {
-            window.localStorage.setItem('session', data.session);
         }
     })
 };

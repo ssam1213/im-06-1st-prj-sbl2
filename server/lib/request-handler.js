@@ -2,11 +2,14 @@ var models = require('../models/index');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
 
-exports.IndexVisit = function (req, res) {  
+// exports.renderIndex = function (req, res) {
+//     res.render('views/shoppingmall/index');
+// }
+
+//render될때 방문자수 체크
+exports.renderIndex = function (req, res) {  
     console.log("beforelogin", req.session);
     console.log('beforelogin', req.sessionID);
-    
-    
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
@@ -21,7 +24,7 @@ exports.IndexVisit = function (req, res) {
             jwt.verify(req.cookies.cookieName, "checkTotalVisitors");
             // console.log('session', req.session);
             console.log('veryfied');    
-            res.end()
+            res.render('views/shoppingmall/index');
         } else {
             console.log('token', myToken);
             //쿠키가 있는 있는데 쿠키네임이 없으면 = 신규
@@ -33,18 +36,14 @@ exports.IndexVisit = function (req, res) {
                 if (err) {
                     throw err;
                 } else {
-                    res.send({
-                        'token': myToken
-                    })
+                    res.render('views/shoppingmall/index');
                 }
             })
         }
     } catch (err) {
         console.log('err', err);
         res.cookie("cookieName", myToken);
-        res.send({
-            'token': myToken
-        })
+        res.render('views/shoppingmall/index');
     };
 }
 
@@ -133,7 +132,8 @@ exports.order = function (req, res) {
 }
 
 exports.renderProduct = function (req, res) {
-    res.render(req.url.slice(1))
+    console.log('-------renderproduct')
+    res.render('views/shoppingmall/'+ req.url.slice(1))
 }
 
 exports.countProductClick = function (req, res) {
