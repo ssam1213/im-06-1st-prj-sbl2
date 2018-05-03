@@ -40,7 +40,7 @@ app.post('/login', handler.loginUser);
 
 app.post('/order', handler.order);
 
-app.get('/product*', handler.renderDetail);
+app.get('/product*', handler.renderProduct);
 app.post('/product*', handler.countProductClick);
 
 app.get('/logout', handler.logout)

@@ -1,30 +1,27 @@
-
-var models = require('../models');
+var models = require('../models/index');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
 
-exports.IndexVisit = function (req, res) {
-    // console.log('indexsession', req.sessionID);
-    // console.log('cookie', req.cookies);
-    // console.log('header cookie', req.headers.cookie);
-
+exports.IndexVisit = function (req, res) {    
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
-        expiresIn: 24 * 60 * 60
+        expiresIn: 24*60*60
     });
-    console.log('beforeTry', req.cookies.cookieName)
+    
     try {
         //쿠키가 있고, 쿠키네임이 있으면
-        if (req.headers.cookie && req.cookies.cookieName) {
+        console.log('afterTry', req.cookies.cookieName);
+        if (req.headers.cookie && req.cookies.cookieName) { // cookie
+            console.log('checkcookie', req.cookies.cookieName);     
             jwt.verify(req.cookies.cookieName, "checkTotalVisitors");
-            console.log('verified')
             // console.log('session', req.session);
+            console.log('veryfied');    
             res.end()
         } else {
-            console.log('firstToken', myToken);
+            console.log('token', myToken);
             //쿠키가 있는 있는데 쿠키네임이 없으면 = 신규
-            res.cookie("cookieName", myToken);
+            res.cookie("cookieName", myToken); //set-cookie
             var visitorTime = new Date();
             var params = [myToken, visitorTime]
             var sql = 'INSERT INTO visitors (token, visitorTime) VALUES (?, ?)';
@@ -39,9 +36,7 @@ exports.IndexVisit = function (req, res) {
             })
         }
     } catch (err) {
-        //토큰이 검증안되면 = 만료되면
-        console.log(err);
-        console.log('exprired')
+        console.log('err', err);
         res.cookie("cookieName", myToken);
         res.send({
             'token': myToken
@@ -81,11 +76,7 @@ exports.signupUser = function (req, res) {
 }
 
 exports.loginUser = function (req, res) {
-
     var mail = req.body.mail
-    console.log(req.body.password);
-
-    // var password = req.password
     var queryStr = 'SELECT password FROM users where mail=?';
     models.users.get(queryStr, mail, function (err, rows) {
         if (err) {
@@ -94,9 +85,14 @@ exports.loginUser = function (req, res) {
             console.log(rows[0].password);
             util.isValidPassword(req.body.password, rows[0].password).then(function (result) {
                 if (result) {
-                    console.log('valid password');
-                    console.log('url', req.url);
-                    req.session.mail = mail
+                    // console.log('valid password');
+                    // console.log('url', req.url);
+                    req.session.regenerate(function(err) {
+                        req.session.cookie.maxAge = 1000*60*60;
+                       })
+                       req.session.mail = mail
+                    // console.log('loginsessID', req.sessionID);
+                    // console.log('req.session', req.session);
                     res.send({
                         result: 'redirect'
                     })
@@ -110,42 +106,43 @@ exports.loginUser = function (req, res) {
 }
 
 exports.logout = function (req, res) {
-
     res.send({
         result: "redirect"
     });
 }
 
 exports.order = function (req, res) {
-    console.log(req.body);
-    res.end()
+    var itemName = req.body.product;
+    var price = req.body.price;
+    var revenueTime = new Date();
+    var params = [itemName, price, revenueTime]
+    var sql = 'INSERT INTO revenue (itemName, price, revenueTime) VALUES (?, ?, ?)';
+    models.revenue.post(sql, params, function(err, rows){
+        if(err){
+            throw err;
+        } else {
+            console.log("success");  
+            res.end()      
+        }
+    })
 }
 
-exports.renderDetail = function (req, res) {
-    // console.log('getbody', req.body);
-
-    console.log('url', req.url);
-
+exports.renderProduct = function (req, res) {
     res.render(req.url.slice(1))
 }
 
 exports.countProductClick = function (req, res) {
-
-    console.log('post', req.body);
-    // res.status(200).send()
-    res.end()
-}
-
-exports.sendNumberVisitors = function (req, res) {
-    var queryStr = 'select count(token) from visitors';
-    models.visitors.get(queryStr, function (err, rows) {
-        if (err) {
-            throw err
+    var pageName = req.body.productCode;
+    console.log(pageName);
+    var pageTime = new Date();
+    var params = [pageName, pageTime]
+    var sql = 'INSERT INTO pageviews (pageName, pageTime) VALUES (?, ?)';
+    models.pageviews.post(sql, params, function(err, rows){
+        if(err){
+            throw err;
         } else {
-            console.log('rows', rows);
-            for(var key in rows){
-            res.send(rows[key])       
-            }
+            console.log("success");  
+            res.end()      
         }
-    });
+    })
 }
