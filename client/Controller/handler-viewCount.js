@@ -20,7 +20,7 @@ var sendProductInfoToServer = function () {
   console.log(data);
 
   sendToServer(data);
-
+};
 
 var sendToServer = data => {
   $.ajax({
@@ -38,6 +38,5 @@ var sendToServer = data => {
       console.log('error :', error);
     }
   })
-
 };
 
