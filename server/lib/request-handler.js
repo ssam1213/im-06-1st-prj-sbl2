@@ -11,7 +11,7 @@ exports.IndexVisit = function (req, res) {
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
-        expiresIn: 30
+        expiresIn: 24 * 60 * 60
     });
     console.log('beforeTry', req.cookies.cookieName)
     try {
