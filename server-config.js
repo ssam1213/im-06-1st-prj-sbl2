@@ -16,6 +16,8 @@ var app = express();
 
 app.use(express.static(__dirname + '/client/views/shoppingmall'));
 app.use(express.static(__dirname + '/client'));
+// app.use(express.static(path.join(__dirname, 'client/views/admin/build')));
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors())
@@ -52,5 +54,9 @@ app.get('/visitCount', adminHandler.mid)
 app.get('/analysisSummary', adminHandler.left)
 app.get('/analysisGraph', adminHandler.right)
 // app.get
+
+// app.get('/admin', function(req,res){
+//     res.sendFile(path.join(__dirname, 'client/views/admin/build', 'index.html'));
+// })
 
 module.exports = app;
