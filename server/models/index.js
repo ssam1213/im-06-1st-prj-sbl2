@@ -14,7 +14,6 @@ module.exports = {
             })
         }
     },
-
     visitors: {
         get: function (queryStr, cb) {
             db.query(queryStr, function (err, rows) {
@@ -26,6 +25,29 @@ module.exports = {
                 cb(err, row);
             })
         }
-
+    },
+    revenue:{
+        get: function (queryStr, cb) {
+            db.query(queryStr, function (err, rows) {
+                cb(err, rows);
+            });
+        },
+        post: function (sql, params, cb) {
+            db.query(sql, params, function (err, row) {
+                cb(err, row);
+            })
+        }
+    },
+    pageviews:{
+        get: function(queryStr, cb) {
+            db.query(queryStr, function (err, rows) {
+                cb(err, rows);
+            });
+        },
+        post: function (sql, params, cb) {
+            db.query(sql, params, function (err, row) {
+                cb(err, row);
+            })
+        }
     }
 };
