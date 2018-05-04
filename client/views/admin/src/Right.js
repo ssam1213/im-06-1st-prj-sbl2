@@ -55,7 +55,7 @@ class Right extends React.Component {
 
     componentDidMount() {
         setInterval(() => {
-            fetch('http://127.0.0.1:8080/analysisGraph')
+            fetch('http://13.125.241.31:8080/analysisGraph')
                 .then(res => res.json())
                 .then(data =>
                     this.setState({ itemData: data.itemData, pageData: data.pageData }))

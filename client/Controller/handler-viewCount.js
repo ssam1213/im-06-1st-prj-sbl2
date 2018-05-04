@@ -5,7 +5,7 @@ $(document).ready(() => {
 });
 
 var simplyAnalApp = {
-  'server': 'http://127.0.0.1:8080'
+  'server': 'http://13.125.241.31:8080'
 };
 
 var sendProductInfoToServer = function () {

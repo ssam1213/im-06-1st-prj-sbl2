@@ -46,7 +46,7 @@ class Mid extends React.Component {
     }
     componentDidMount(){
         setInterval(() => {
-        fetch('http://127.0.0.1:8080/visitCount')
+        fetch('http://13.125.241.31:8080/visitCount')
         .then(res => res.json())
         .then(data => 
             this.setState({data1: data}))

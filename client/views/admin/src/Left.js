@@ -16,7 +16,7 @@ class Left extends React.Component{
 
     componentDidMount() {
         setInterval(() => {
-          fetch('http://127.0.0.1:8080/analysisSummary')
+          fetch('http://13.125.241.31:8080/analysisSummary')
             .then(res => res.json())
             .then(data => {
                 this.setState({ stats: data })

@@ -183,7 +183,7 @@ exports.renderProduct = function (req, res) {
         console.log('sesseion exists');
         res.render('views/shoppingmall/' + req.url.slice(1) + 'Logout')
     } else {
-        console.log('sesseion expires');
+        console.log('not login user');
         
         res.render('views/shoppingmall/' + req.url.slice(1))
     }
