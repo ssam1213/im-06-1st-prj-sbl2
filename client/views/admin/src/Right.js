@@ -15,7 +15,7 @@ const columns1 = [{
     sort: true
 }, {
     dataField: 'visit',
-    text: 'Visits',
+    text: 'QTY',
     sort: true
 }
 ];

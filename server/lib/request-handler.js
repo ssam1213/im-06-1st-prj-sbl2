@@ -2,21 +2,21 @@ var models = require('../models/index');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
 
-exports.IndexVisit = function (req, res) {    
+exports.IndexVisit = function (req, res) {
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
-        expiresIn: 24*60*60
-    });
-    
+            expiresIn: 24 * 60 * 60
+        });
+
     try {
         //쿠키가 있고, 쿠키네임이 있으면
         console.log('afterTry', req.cookies.cookieName);
         if (req.headers.cookie && req.cookies.cookieName) { // cookie
-            console.log('checkcookie', req.cookies.cookieName);     
+            console.log('checkcookie', req.cookies.cookieName);
             jwt.verify(req.cookies.cookieName, "checkTotalVisitors");
             // console.log('session', req.session);
-            console.log('veryfied');    
+            console.log('veryfied');
             res.end()
         } else {
             console.log('token', myToken);
@@ -87,10 +87,10 @@ exports.loginUser = function (req, res) {
                 if (result) {
                     // console.log('valid password');
                     // console.log('url', req.url);
-                    req.session.regenerate(function(err) {
-                        req.session.cookie.maxAge = 1000*60*60;
-                       })
-                       req.session.mail = mail
+                    req.session.regenerate(function (err) {
+                        req.session.cookie.maxAge = 1000 * 60 * 60;
+                    })
+                    req.session.mail = mail
                     // console.log('loginsessID', req.sessionID);
                     // console.log('req.session', req.session);
                     res.send({
@@ -117,12 +117,12 @@ exports.order = function (req, res) {
     var revenueTime = new Date();
     var params = [itemName, price, revenueTime]
     var sql = 'INSERT INTO revenue (itemName, price, revenueTime) VALUES (?, ?, ?)';
-    models.revenue.post(sql, params, function(err, rows){
-        if(err){
+    models.revenue.post(sql, params, function (err, rows) {
+        if (err) {
             throw err;
         } else {
-            console.log("success");  
-            res.end()      
+            console.log("success");
+            res.end()
         }
     })
 }
@@ -138,12 +138,12 @@ exports.countProductClick = function (req, res) {
     var pageTime = new Date();
     var params = [pageName, pageTime]
     var sql = 'INSERT INTO pageviews (pageName, pageTime) VALUES (?, ?)';
-    models.pageviews.post(sql, params, function(err, rows){
-        if(err){
+    models.pageviews.post(sql, params, function (err, rows) {
+        if (err) {
             throw err;
         } else {
-            console.log("success");  
-            res.end()      
+            console.log("success");
+            res.end()
         }
     })
 }

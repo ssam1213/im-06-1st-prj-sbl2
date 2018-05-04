@@ -21,7 +21,7 @@ const sendJson = (res, data) => {
                     '20': 0,
                     '24': 0
                 },
-              },
+            },
             {
                 title: 'pageview',
                 current: 0,
@@ -73,7 +73,6 @@ module.exports.supplyLeftPanelData = (req, res) => {
         timeConfig.day,
         timeSpan);
 
-    console.log('query :', query);
     adminModels.left(query, (err, rows) => {
         if (err) throw err;
         sendJson(res, rows);

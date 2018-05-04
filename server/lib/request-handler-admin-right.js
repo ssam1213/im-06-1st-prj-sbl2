@@ -14,7 +14,7 @@ module.exports.supplyRightPanelData = (req, res) => {
             @N := 0,
             itemName AS name,
             SUM(price) AS price,
-            COUNT(pageName) AS visit
+            COUNT(price) AS visit
           FROM revenue
           LEFT JOIN pageviews
           ON revenue.pageviews_id=pageviews.id
@@ -46,16 +46,16 @@ module.exports.supplyRightPanelData = (req, res) => {
       `
   };
   const json = {
-    itemData : '',
-    pageData : ''
+    itemData: '',
+    pageData: ''
   };
   adminModels.right(queries.rightTop)
-   .then((itemData)=>{
+    .then((itemData) => {
       json.itemData = itemData;
       adminModels.right(queries.rightBottom)
-      .then((pageData) => {
-        json.pageData = pageData;
-        res.send(JSON.stringify(json));
-      });
+        .then((pageData) => {
+          json.pageData = pageData;
+          res.send(JSON.stringify(json));
+        });
     });
 };
