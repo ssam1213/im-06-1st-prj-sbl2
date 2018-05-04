@@ -9,7 +9,9 @@ var path = require('path');
 var partial = require('express-partial');
 var cons = require('consolidate');
 var cors = require('cors')
-var adminHandler = require('./server/lib/requestAdmin')
+var adminLeft = require('./server/lib/request-handler-admin-left')
+var adminMid = require('./server/lib/request-handler-admin-mid')
+var adminRight = require('./server/lib/request-handler-admin-right')
 
 
 var app = express();
@@ -43,14 +45,14 @@ app.post('/order', handler.order);
 app.get('/product*', handler.renderProduct);
 app.post('/product*', handler.countProductClick);
 
-app.get('/logout', handler.logout)
+app.get('/logout', handler.logout)   
 
 // app.get(/)
 
 //admin
-app.get('/visitCount', adminHandler.mid)
-app.get('/analysisSummary', adminHandler.left)
-app.get('/analysisGraph', adminHandler.right)
+app.get('/visitCount', adminMid.supplyMidPanelData)
+app.get('/analysisSummary', adminLeft.supplyLeftPanelData)
+app.get('/analysisGraph', adminRight.supplyRightPanelData)
 // app.get
 
 module.exports = app;

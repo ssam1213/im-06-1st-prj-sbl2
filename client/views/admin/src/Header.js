@@ -1,6 +1,12 @@
 import React from 'react';
 import logo from './simple.png'
 
+var dt = new Date();
+var month = dt.getMonth() + 1;
+var day = dt.getDate();
+var year = dt.getFullYear();
+
+
 var Header = () => (
     <div>
         <div id='headTitle'>
@@ -8,7 +14,7 @@ var Header = () => (
             <img src={logo} width="35" height="35" alt="logo" />
         </div>
         <div id="headDate">
-            <h2 className='head'>April 23, 2018 - May 7, 2018</h2>
+            <h1 className='head'>{`${year}/${month}/${day}`}</h1>
         </div>
     </div>
 );

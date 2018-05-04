@@ -128,6 +128,7 @@ exports.order = function (req, res) {
 }
 
 exports.renderProduct = function (req, res) {
+    console.log(req.url.slice(1))
     res.render(req.url.slice(1))
 }
 

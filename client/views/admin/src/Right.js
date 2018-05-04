@@ -1,5 +1,6 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 const columns1 = [{
     dataField: 'id',
@@ -27,7 +28,7 @@ const columns2 = [{
     text: 'pagename',
     sort: true
 }, {
-    dataField: 'pageView',
+    dataField: 'pageview',
     text: 'Pageview',
     sort: true
 }, {
@@ -47,19 +48,21 @@ class Right extends React.Component {
     }
     
     renderItemGraph = () => {
-        return <BootstrapTable keyField='id' data={this.state.itemData} columns={columns1} />
+        return <BootstrapTable keyField='id' isKey={true} data={this.state.itemData} columns={columns1} />
     }
 
     renderPageGraph = () => {
-        return <BootstrapTable keyField='id' data={this.state.pagaData} columns={columns2} />
+        return <BootstrapTable keyField='id' isKey={true} data={this.state.pageData} columns={columns2} />
     }
 
     componentDidMount() {
-        fetch('http://127.0.0.1:8080/analysisGraph')
-            .then(res => res.json())
-            .then(data =>
-                this.setState({ itemData: data.itemData, pagaData: data.pagaData }))
-            .catch(err => console.log(err))
+        setInterval(() => {
+            fetch('http://127.0.0.1:8080/analysisGraph')
+                .then(res => res.json())
+                .then(data =>
+                    this.setState({ itemData: data.itemData, pageData: data.pageData }))
+                .catch(err => console.log(err))
+        }, 100);
     }
     
     render(){
@@ -72,7 +75,7 @@ class Right extends React.Component {
                 </div>
                 <div id='rightBottom'>
                     <h2><u> Top Landing pages </u></h2>
-                    {!this.state.pagaData ? 'Loading...' : this.state.pagaData.length ? this.renderPageGraph() : 'Loading...'}
+                    {!this.state.pageData ? 'Loading...' : this.state.pageData.length ? this.renderPageGraph() : 'Loading...'}
                 </div>
             </div>
         )
