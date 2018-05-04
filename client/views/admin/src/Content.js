@@ -17,6 +17,4 @@ var Content = () => (
     </div>
 );
 
-
-
 export default Content;

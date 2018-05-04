@@ -6,7 +6,6 @@ var month = dt.getMonth() + 1;
 var day = dt.getDate();
 var year = dt.getFullYear();
 
-
 var Header = () => (
     <div>
         <div id='headTitle'>
@@ -18,6 +17,5 @@ var Header = () => (
         </div>
     </div>
 );
-
 
 export default Header;

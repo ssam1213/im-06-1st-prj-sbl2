@@ -20,7 +20,6 @@ exports.isValidPassword = function (password, hash) {
              } else {
                 resolve(hash);
              }          
-         // data is created only after this occurs
         });
       });
   }

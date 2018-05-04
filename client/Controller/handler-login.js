@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#login').click(loginEvent);
-    $('user-menu li a:nth-child(2)').click(logOutEvent);
+    $('#logout').click(logOutEvent);
 });
 
 var simplyAnalApp = {
@@ -22,9 +22,8 @@ var loginEvent = function () {
         }),
         success: (response) => {
             console.log('response', response);
-
             if (response.result === 'redirect') {
-                window.location.replace('/logout.html');
+                window.location.replace('/views/shoppingmall/logout.html');
             }
         },
         error: (error) => {
@@ -37,9 +36,9 @@ var logOutEvent = function (session) {
     $.ajax({
         type: "GET",
         url: simplyAnalApp.server + '/logout',
-        success: (data) => {
+        success: (response) => {
             if (response.result === 'redirect') {
-                window.location.replace('/index.html');
+                window.location.replace('/views/shoppingmall/index.html');
             }
         }
     })

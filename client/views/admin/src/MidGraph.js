@@ -26,15 +26,11 @@ var MidGraph = (props) => {
             }]
         }
     
-
     return (
         <div>
         <Line data={midData} width={400} height={180} options={options} type='line' /> 
         </div>
     )
 }
-
-
-
 
 export default MidGraph;

@@ -38,12 +38,10 @@ const columns2 = [{
 }
 ];
 
-
 class Right extends React.Component {
     constructor(){
         super();
         this.state = {
-
         }
     }
     
@@ -70,8 +68,7 @@ class Right extends React.Component {
             <div id='right'>
                 <div id = 'rightTop'>
                     <h2><u>Top Rated items</u></h2>
-                    {!this.state.itemData ? 'Loading...' : this.state.itemData.length ? this.renderItemGraph() : 'Loading...' }
-                    
+                    {!this.state.itemData ? 'Loading...' : this.state.itemData.length ? this.renderItemGraph() : 'Loading...' }           
                 </div>
                 <div id='rightBottom'>
                     <h2><u> Top Landing pages </u></h2>
@@ -81,6 +78,5 @@ class Right extends React.Component {
         )
     }
 }
-
 
 export default Right;

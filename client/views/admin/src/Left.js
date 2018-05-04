@@ -8,7 +8,6 @@ class Left extends React.Component{
         }
     }
 
-
     renderGraph = () => {
         return this.state.stats.dataset.map((stat, i) => {
             return <LineGraph stat={stat} key={i} />
@@ -16,7 +15,6 @@ class Left extends React.Component{
     }
 
     componentDidMount() {
-     
         setInterval(() => {
           fetch('http://127.0.0.1:8080/analysisSummary')
             .then(res => res.json())

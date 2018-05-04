@@ -51,15 +51,20 @@ const sendJson = (res, data) => {
 
     for (let i in data) {
         if (json.dataset[0].data.hasOwnProperty(data[i].hour)) {
-            json.dataset[0].data[data[i].hour] = data[i].sRev;
-            json.dataset[1].data[data[i].hour] = data[i].sPview;
-            json.dataset[2].data[data[i].hour] = data[i].sVisitor;
+          if (data[i].sRev) {
+            json.dataset[0].data[data[i].hour] = data[i].sRev; 
             json.dataset[0].current += data[i].sRev;
+          }
+          if (data[i].sPview) {
+            json.dataset[1].data[data[i].hour] = data[i].sPview;
             json.dataset[1].current += data[i].sPview;
+          } 
+          if (data[i].sVisitor) {
+            json.dataset[2].data[data[i].hour] = data[i].sVisitor;
             json.dataset[2].current += data[i].sVisitor;
+          }
         }
-    }
-
+      }
 
     res.send(JSON.stringify(json));
 };

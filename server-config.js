@@ -16,7 +16,6 @@ var adminRight = require('./server/lib/request-handler-admin-right')
 
 var app = express();
 
-app.use(express.static(__dirname + '/client/views/shoppingmall'));
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -26,33 +25,31 @@ app.use(session({
     saveUninitialized: true,
     resave: false,
     cookie: {
-        maxAge: 1000 * 60 * 60
+        maxAge: 1000 * 60 * 30
     },
 }));
 
 app.engine('html', cons.swig);
-app.set('views', path.join(__dirname, '/client/views/shoppingmall'));
+app.set('views', path.join(__dirname, '/client'));
 app.set('view engine', 'html');
 
-app.get('/indexVisit', handler.IndexVisit);
+app.get('/', handler.renderIndex)
+app.get('/logout', handler.logout)
 
+app.get(/register/, handler.rederRegister);
 app.post('/register', handler.signupUser);
-
 app.post('/login', handler.loginUser);
-
-app.post('/order', handler.order);
 
 app.get('/product*', handler.renderProduct);
 app.post('/product*', handler.countProductClick);
+app.post('/order', handler.order);
 
-app.get('/logout', handler.logout)
 
-// app.get(/)
-
-//admin
 app.get('/visitCount', adminMid.supplyMidPanelData)
 app.get('/analysisSummary', adminLeft.supplyLeftPanelData)
 app.get('/analysisGraph', adminRight.supplyRightPanelData)
-// app.get
+
+
 
 module.exports = app;
+

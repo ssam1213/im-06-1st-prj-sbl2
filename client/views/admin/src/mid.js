@@ -13,7 +13,6 @@ const options = {
   }
 }
 
-
 class Mid extends React.Component {
     constructor(){
         super();
@@ -45,8 +44,6 @@ class Mid extends React.Component {
     renderGraph = () => {
         return <MidGraph line={this.state.data1}/>
     }
-
-
     componentDidMount(){
         setInterval(() => {
         fetch('http://127.0.0.1:8080/visitCount')
@@ -68,11 +65,9 @@ class Mid extends React.Component {
                     <h2><u> Visits By Channel </u></h2>  
                     <Pie data={this.state.data2} width = {400} height = {180} options = {options}  />
                 </div>
-            </div>
-         
+            </div>   
         )
     }
 };
-
 
 export default Mid;
