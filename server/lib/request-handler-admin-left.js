@@ -59,7 +59,6 @@ const sendJson = (res, data) => {
             json.dataset[2].current += data[i].sVisitor;
         }
     }
-    // console.log('json :', JON.stringify(json));
 
 
     res.send(JSON.stringify(json));

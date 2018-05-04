@@ -126,9 +126,9 @@
 .stat {
   height: 100%;
   width: 100%;
-  display: subgrid;
+  /* display: subgrid;
   grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column-end: 5; */
   overflow: auto;
   background-color: white;
 }
