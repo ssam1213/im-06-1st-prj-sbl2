@@ -24,3 +24,13 @@ exports.isValidPassword = function (password, hash) {
         });
       });
   }
+
+  exports.getTimeConfig = () => {
+  const today = new Date();
+  const config = {
+    year: today.getFullYear(),
+    month: today.getMonth() + 1,
+    day: today.getDate()
+  };
+  return config;
+  };

@@ -107,19 +107,20 @@
   grid-gap: 6px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: 'r r' 'o o'
+  grid-template-areas: 'r r' 'o o';
+  overflow: auto;
 }
 
 #rightTop {
   grid-area: r;
   background-color: white;
-  height: 100%
+  height: 100%;
 }
 
 #rightBottom {
   grid-area: o;
   background-color: white;
-  height: 100%
+  height: 100%;
 }
 
 .stat {

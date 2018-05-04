@@ -9,12 +9,15 @@ var path = require('path');
 var partial = require('express-partial');
 var cons = require('consolidate');
 var cors = require('cors')
-var adminHandler = require('./server/lib/requestAdmin')
+var adminLeft = require('./server/lib/request-handler-admin-left')
+var adminMid = require('./server/lib/request-handler-admin-mid')
+var adminRight = require('./server/lib/request-handler-admin-right')
 
 
 var app = express();
-app.use(express.static(__dirname + '/client'));
 
+app.use(express.static(__dirname + '/client/views/shoppingmall'));
+app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors())
@@ -28,10 +31,10 @@ app.use(session({
 }));
 
 app.engine('html', cons.swig);
-app.set('views', path.join(__dirname, '/client'));
+app.set('views', path.join(__dirname, '/client/views/shoppingmall'));
 app.set('view engine', 'html');
 
-app.get('/', handler.renderIndex)
+app.get('/indexVisit', handler.IndexVisit);
 
 app.post('/register', handler.signupUser);
 
@@ -44,17 +47,12 @@ app.post('/product*', handler.countProductClick);
 
 app.get('/logout', handler.logout)
 
+// app.get(/)
 
 //admin
-app.get('/visitCount', adminHandler.mid)
-app.get('/analysisSummary', adminHandler.left)
-app.get('/analysisGraph', adminHandler.right)
+app.get('/visitCount', adminMid.supplyMidPanelData)
+app.get('/analysisSummary', adminLeft.supplyLeftPanelData)
+app.get('/analysisGraph', adminRight.supplyRightPanelData)
 // app.get
-
-app.get('/admin', function(req,res){
-    res.render('views/admin/build/index')
-    // res.sendFile(path.join(__dirname, 'client/views/admin/build', 'index.html'), {
-    // });
-})
 
 module.exports = app;

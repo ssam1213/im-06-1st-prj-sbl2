@@ -1,5 +1,7 @@
 $(document).ready(() => {
-  $('section.main-content').on('click', 'div.product-box', sendProductInfoToServer);
+//   $('section.main-content').on('click', 'div.product-box', sendProductInfoToServer);
+// });
+  $('.product-box').click(sendProductInfoToServer);
 });
 
 var simplyAnalApp = {
@@ -15,22 +17,40 @@ var sendProductInfoToServer = function () {
     'productName': productName,
     'category': category
   };
-  sendToServer(data);
-};
 
-var sendToServer = data => {
-  console.log(data.productCode);
+  console.log(data)
+
+  // sendToServer(data);
   $.ajax({
     type: 'POST',
     url: simplyAnalApp.server + '/' + data.productCode,
     contentType: 'application/json',
     data: JSON.stringify(data),
     success: (response) => {
-      console.log(response);
+      alert('success');
     },
     error: (error) => {
       console.log('error :', error);
     }
   })
+
+
+
 };
+
+// var sendToServer = data => {
+//   console.log(data.productCode);
+//   $.ajax({
+//     type: 'POST',
+//     url: simplyAnalApp.server + '/' + data.productCode,
+//     contentType: 'application/json',
+//     data: JSON.stringify(data),
+//     success: (response) => {
+//       console.log(response);
+//     },
+//     error: (error) => {
+//       console.log('error :', error);
+//     }
+//   })
+// };
 

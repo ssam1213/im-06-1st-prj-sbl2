@@ -2,29 +2,22 @@ var models = require('../models/index');
 var util = require('../lib/utility');
 var jwt = require("jsonwebtoken");
 
-// exports.renderIndex = function (req, res) {
-//     res.render('views/shoppingmall/index');
-// }
-
-//render될때 방문자수 체크
-exports.renderIndex = function (req, res) {  
-    console.log("beforelogin", req.session);
-    console.log('beforelogin', req.sessionID);
+exports.IndexVisit = function (req, res) {
     var myToken = jwt.sign({
         user: req.sessionID
     }, "checkTotalVisitors", {
-        expiresIn: 24*60*60
-    });
-    
+            expiresIn: 24 * 60 * 60
+        });
+
     try {
         //쿠키가 있고, 쿠키네임이 있으면
         console.log('afterTry', req.cookies.cookieName);
         if (req.headers.cookie && req.cookies.cookieName) { // cookie
-            console.log('checkcookie', req.cookies.cookieName);     
+            console.log('checkcookie', req.cookies.cookieName);
             jwt.verify(req.cookies.cookieName, "checkTotalVisitors");
             // console.log('session', req.session);
-            console.log('veryfied');    
-            res.render('views/shoppingmall/index');
+            console.log('veryfied');
+            res.end()
         } else {
             console.log('token', myToken);
             //쿠키가 있는 있는데 쿠키네임이 없으면 = 신규
@@ -36,14 +29,18 @@ exports.renderIndex = function (req, res) {
                 if (err) {
                     throw err;
                 } else {
-                    res.render('views/shoppingmall/index');
+                    res.send({
+                        'token': myToken
+                    })
                 }
             })
         }
     } catch (err) {
         console.log('err', err);
         res.cookie("cookieName", myToken);
-        res.render('views/shoppingmall/index');
+        res.send({
+            'token': myToken
+        })
     };
 }
 
@@ -90,12 +87,11 @@ exports.loginUser = function (req, res) {
                 if (result) {
                     // console.log('valid password');
                     // console.log('url', req.url);
-                    req.session.regenerate(function(err) {
-                        req.session.cookie.maxAge = 1000*60*60;
-                       })
-                       req.session.mail = mail
-                       console.log("afterlogin", req.session);
-                     console.log('afterlogin', req.sessionID);
+                    req.session.regenerate(function (err) {
+                        req.session.cookie.maxAge = 1000 * 60 * 60;
+                    })
+                    req.session.mail = mail
+                    // console.log('loginsessID', req.sessionID);
                     // console.log('req.session', req.session);
                     res.send({
                         result: 'redirect'
@@ -121,19 +117,19 @@ exports.order = function (req, res) {
     var revenueTime = new Date();
     var params = [itemName, price, revenueTime]
     var sql = 'INSERT INTO revenue (itemName, price, revenueTime) VALUES (?, ?, ?)';
-    models.revenue.post(sql, params, function(err, rows){
-        if(err){
+    models.revenue.post(sql, params, function (err, rows) {
+        if (err) {
             throw err;
         } else {
-            console.log("success");  
-            res.end()      
+            console.log("success");
+            res.end()
         }
     })
 }
 
 exports.renderProduct = function (req, res) {
-    console.log('-------renderproduct')
-    res.render('views/shoppingmall/'+ req.url.slice(1))
+    console.log(req.url.slice(1))
+    res.render(req.url.slice(1))
 }
 
 exports.countProductClick = function (req, res) {
@@ -142,12 +138,12 @@ exports.countProductClick = function (req, res) {
     var pageTime = new Date();
     var params = [pageName, pageTime]
     var sql = 'INSERT INTO pageviews (pageName, pageTime) VALUES (?, ?)';
-    models.pageviews.post(sql, params, function(err, rows){
-        if(err){
+    models.pageviews.post(sql, params, function (err, rows) {
+        if (err) {
             throw err;
         } else {
-            console.log("success");  
-            res.end()      
+            console.log("success");
+            res.end()
         }
     })
 }

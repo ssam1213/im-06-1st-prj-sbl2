@@ -1,17 +1,18 @@
 import React from 'react';
-import RC2 from 'react-chartjs2';
 import {Pie} from 'react-chartjs-2';
+import MidGraph from './MidGraph';
 
 const options = {
   maintainAspectRatio: true,
   responsive: true,
   legend: {
-    position: 'left',
+    position: 'left',   
     labels: {
       boxWidth: 10
     }
   }
 }
+
 
 class Mid extends React.Component {
     constructor(){
@@ -42,15 +43,18 @@ class Mid extends React.Component {
     }
 
     renderGraph = () => {
-      return <RC2 data={this.state.data1} width={400} height={180} options={options} type='line' />    
+        return <MidGraph line={this.state.data1}/>
     }
 
+
     componentDidMount(){
+        setInterval(() => {
         fetch('http://127.0.0.1:8080/visitCount')
         .then(res => res.json())
         .then(data => 
             this.setState({data1: data}))
         .catch(err => console.log(err))
+        }, 100)
     }
     
     render() {
@@ -58,8 +62,7 @@ class Mid extends React.Component {
             <div id='mid'>
                 <div id = "midTop">
                     <h2><u> Visits & Revenue </u></h2>  
-                    {!this.state.data1 ? 'Loading...' : this.state.data1.datasets[0].data.length && this.state.data1.datasets[1].data.length ? this.renderGraph() : 'Loading...'  }
-                   
+                    {!this.state.data1 ? 'Loading...' : this.renderGraph()}
                 </div>
                 <div id = "midBottom">
                     <h2><u> Visits By Channel </u></h2>  
