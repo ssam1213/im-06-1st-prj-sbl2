@@ -19,7 +19,7 @@ module.exports.supplyRightPanelData = (req, res) => {
           LEFT JOIN pageviews
           ON revenue.pageviews_id=pageviews.id
           WHERE DATE(revenueTime) = CURDATE()
-          GROUP BY name
+          GROUP BY name 
           ORDER BY price DESC
           LIMIT 5
         ) AS itemTable;
@@ -40,7 +40,7 @@ module.exports.supplyRightPanelData = (req, res) => {
           FROM pageviews
           WHERE DATE(pageTime) = CURDATE()
           GROUP BY pages
-          ORDER BY pageview DESC 
+          ORDER BY pageview DESC, avgTime DESC 
           LIMIT 5
         ) AS pageTable;
       `
